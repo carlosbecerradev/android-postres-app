@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -20,6 +24,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
+
+    private EditText edtEmail, edtPassword;
+    private Button btnRegistrar, btnIniciarSesion;
 
     private CallbackManager mCallbackManager;
 
@@ -61,6 +69,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
                 Log.d(TAG, "facebook:onError", error);
+            }
+        });
+
+        // Login con correo electrónico
+        edtEmail = (EditText) findViewById(R.id.edt_user_email);
+        edtPassword = (EditText) findViewById(R.id.edt_user_password);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistrarUsuario);
+        btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
+
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegistrarUsuario();
+            }
+        });
+
+        btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iniciarSesion();
             }
         });
 
@@ -121,4 +149,71 @@ public class MainActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 
     }
+
+    // Login con correo electrónico
+
+    private void RegistrarUsuario() {
+        // obtener datos de los EditText
+        String email  = edtEmail.getText().toString().trim();
+        String password = edtPassword.getText().toString().trim();
+
+        // validar datos
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this, "Ingresar un email", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this, "Ingresar una contraseña", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // crear usuario
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Usuario registrado correctamente.", Toast.LENGTH_LONG).show();
+                } else {
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(MainActivity.this, "El usuario ya existe..", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "No se puedo registrar al usuario..", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+    }
+
+    private void iniciarSesion() {
+        String email = edtEmail.getText().toString().trim();
+        String password = edtPassword.getText().toString().trim();
+
+        // validar datos
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this, "Ingresar un email", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this, "Ingresar una contraseña", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // iniciar
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    redirectToProductsActivity();
+                } else {
+
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(MainActivity.this, "El usuario no existe.." + edtEmail.getText(), Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "No se pudo iniciar sesión..", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+    }
+
 }
