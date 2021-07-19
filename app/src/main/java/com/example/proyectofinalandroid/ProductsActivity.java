@@ -56,7 +56,7 @@ public class ProductsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProductCollapsingToolbarActivity.class);
-                intent.putExtra("productId", edtCodigoProducto.getText());
+                intent.putExtra("productId", edtCodigoProducto.getText().toString());
                 startActivity(intent);
                 finish();
             }
