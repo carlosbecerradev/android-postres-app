@@ -10,5 +10,7 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_collapsing_toolbar);
+        // Esconder ActionBar
+        getSupportActionBar().hide();
     }
 }
