@@ -59,13 +59,14 @@ public class ProductsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProductCollapsingToolbarActivity.class);
                 intent.putExtra("productId", edtCodigoProducto.getText().toString());
+                intent.putExtra("userUid", userUid);
                 startActivity(intent);
                 finish();
             }
         });
 
         // Registrar Producto
-        userUid =  getIntent().getStringExtra("userUid");
+        userUid = getIntent().getStringExtra("userUid");
         btnInsertProduct = (Button) findViewById(R.id.btnNuevoProducto);
         btnInsertProduct.setOnClickListener(new View.OnClickListener() {
             @Override

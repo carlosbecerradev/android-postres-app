@@ -40,6 +40,7 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
 
     private TextView tvName, tvPrice, tvUserUid, tvId;
     private Button btnRetroceder;
+    private String userUID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,8 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
 
         // Obteniendo el codigo del producto enviado por el anterior Activity
         productId = getIntent().getStringExtra("productId");
+        // Obteniendo el User UID del login
+        userUID = getIntent().getStringExtra("userUid");
 
         //
         tvName = (TextView) findViewById(R.id.tv_product_name);
@@ -67,6 +70,7 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+                intent.putExtra("userUid", userUID);
                 startActivity(intent);
                 finish();
             }
