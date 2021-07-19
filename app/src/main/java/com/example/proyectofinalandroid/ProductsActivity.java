@@ -61,6 +61,17 @@ public class ProductsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        // Registrar Producto
+        btnInsertProduct = (Button) findViewById(R.id.btnNuevoProducto);
+        btnInsertProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), InsertProductActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void signOut() {
