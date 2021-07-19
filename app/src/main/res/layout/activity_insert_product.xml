@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".InsertProductActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/iv_product_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/d_cafe" />
+
+            <Button
+                android:id="@+id/btnOpenCamara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Tomar Foto"
+                android:textAllCaps="false" />
+
+            <EditText
+                android:id="@+id/edt_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/ygray_200"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/edt_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/ygray_200"
+                android:hint="Price"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textSize="18dp" />
+
+
+            <Button
+                android:id="@+id/btnRegistrarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Registrar Producto"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnCancelarRegistrarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Salir"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

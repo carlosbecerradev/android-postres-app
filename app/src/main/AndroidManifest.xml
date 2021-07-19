@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoFinalAndroid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".InsertProductActivity"></activity>
+        <activity
+            android:name=".InsertProductActivity"
+            android:label="Nuevo Producto"></activity>
         <activity
             android:name=".ProductCollapsingToolbarActivity"
             android:label="Producto buscado" />
