@@ -15,21 +15,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/edt_product_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:inputType="textPersonName"
+                    android:layout_marginRight="20dp"
+                    android:text="Código producto" />
+
+                <Button
+                    android:id="@+id/btnBuscar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Buscar" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnNuevoProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:text="Agregar Nuevo Producto" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_products"
+                android:layout_marginTop="10dp"
+                android:layout_width="380dp"
+                android:layout_height="546dp" />
 
             <Button
                 android:id="@+id/btnSignOut"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Cerrar Sesión" />
 
 
