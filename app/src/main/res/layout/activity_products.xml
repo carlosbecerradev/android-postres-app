@@ -26,13 +26,13 @@
 
                 <EditText
                     android:id="@+id/edt_product_id"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="16dp"
                     android:inputType="textPersonName"
                     android:layout_marginRight="20dp"
-                    android:text="Código producto" />
+                    android:hint="Código de producto" />
 
                 <Button
                     android:id="@+id/btnBuscar"
