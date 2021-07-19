@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-                            redirectToProductsActivity();
+                            redirectToProductsActivity(mAuth.getUid());
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -140,8 +140,10 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void redirectToProductsActivity() {
-        startActivity(new Intent(this, ProductsActivity.class));
+    private void redirectToProductsActivity(String userUid) {
+        Intent intent = new Intent(this, ProductsActivity.class);
+        intent.putExtra("userUid", userUid);
+        startActivity(intent);
         finish();
     }
     // [END auth_with_facebook]
@@ -154,15 +156,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void RegistrarUsuario() {
         // obtener datos de los EditText
-        String email  = edtEmail.getText().toString().trim();
+        String email = edtEmail.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
 
         // validar datos
-        if(TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Ingresar un email", Toast.LENGTH_LONG).show();
             return;
         }
-        if(TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Ingresar una contraseña", Toast.LENGTH_LONG).show();
             return;
         }
@@ -171,10 +173,10 @@ public class MainActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Usuario registrado correctamente.", Toast.LENGTH_LONG).show();
                 } else {
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         Toast.makeText(MainActivity.this, "El usuario ya existe..", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(MainActivity.this, "No se puedo registrar al usuario..", Toast.LENGTH_LONG).show();
@@ -189,11 +191,11 @@ public class MainActivity extends AppCompatActivity {
         String password = edtPassword.getText().toString().trim();
 
         // validar datos
-        if(TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Ingresar un email", Toast.LENGTH_LONG).show();
             return;
         }
-        if(TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Ingresar una contraseña", Toast.LENGTH_LONG).show();
             return;
         }
@@ -202,11 +204,11 @@ public class MainActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
-                    redirectToProductsActivity();
+                if (task.isSuccessful()) {
+                    redirectToProductsActivity(mAuth.getUid());
                 } else {
 
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         Toast.makeText(MainActivity.this, "El usuario no existe.." + edtEmail.getText(), Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(MainActivity.this, "No se pudo iniciar sesión..", Toast.LENGTH_LONG).show();
