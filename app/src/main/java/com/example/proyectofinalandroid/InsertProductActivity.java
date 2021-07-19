@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectofinalandroid.model.Product;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
@@ -64,6 +65,15 @@ public class InsertProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 registrarProducto(WS_POST_PRODUCT_URL);
+            }
+        });
+
+        btnExit = (Button) findViewById(R.id.btnCancelarRegistrarProducto);
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+                startActivity(intent);
             }
         });
     }
