@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoFinalAndroid">
         <activity
+            android:name=".ProductCollapsingToolbarActivity"
+            android:label="Producto buscado"></activity>
+        <activity
             android:name=".ProductsActivity"
-            android:label="Productos"></activity>
+            android:label="Productos" />
         <activity
             android:name=".MainActivity"
             android:label="Autenticación">

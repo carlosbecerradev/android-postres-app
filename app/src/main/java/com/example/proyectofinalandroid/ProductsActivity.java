@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.proyectofinalandroid.model.Product;
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,7 +18,8 @@ import java.util.List;
 
 public class ProductsActivity extends AppCompatActivity {
 
-    Button btnSignOut;
+    private Button btnSignOut, btnSearchProduct, btnInsertProduct;
+    private EditText edtCodigoProducto;
     private RecyclerView recyclerViewProducts;
     private List<Product> products = new ArrayList<>();
     private RecyclerView.Adapter adapter;
@@ -46,6 +48,19 @@ public class ProductsActivity extends AppCompatActivity {
                 signOut();
             }
         });
+
+        // Buscar Producto
+        edtCodigoProducto = (EditText) findViewById(R.id.edt_product_id);
+        btnSearchProduct = (Button) findViewById(R.id.btnBuscar);
+        btnSearchProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProductCollapsingToolbarActivity.class);
+                intent.putExtra("productId", edtCodigoProducto.getText());
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void signOut() {
@@ -61,6 +76,6 @@ public class ProductsActivity extends AppCompatActivity {
         products.add(new Product(2L, "Dona de Miel", "S/ 10", R.drawable.d_miel));
         products.add(new Product(3L, "Dona de Chispas", "S/ 10", R.drawable.d_choco_crispi));
         products.add(new Product(4L, "Dona de Chocolate", "S/ 10", R.drawable.d_choco));
-        products.add(new Product(5L, "Dona de Menta", "S/ 10",  R.drawable.d_menta));
+        products.add(new Product(5L, "Dona de Menta", "S/ 10", R.drawable.d_menta));
     }
 }
