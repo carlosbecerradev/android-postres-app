@@ -25,6 +25,8 @@ public class ProductsActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
 
+    private String userUid = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,11 +65,13 @@ public class ProductsActivity extends AppCompatActivity {
         });
 
         // Registrar Producto
+        userUid =  getIntent().getStringExtra("userUid");
         btnInsertProduct = (Button) findViewById(R.id.btnNuevoProducto);
         btnInsertProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), InsertProductActivity.class);
+                intent.putExtra("userUid", userUid);
                 startActivity(intent);
                 finish();
             }
