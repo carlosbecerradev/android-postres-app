@@ -85,7 +85,7 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
 
     private void fillComponents(JSONObject response) {
         try {
-            tvName.setText(response.getString("nombre"));
+            tvName.setText(response.getString("name"));
             tvPrice.setText("S/ " + response.getString("price"));
             tvUserUid.setText("UID: " + response.getString("userUid"));
             tvId.setText("Id: " + response.getString("id"));
