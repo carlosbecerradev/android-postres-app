@@ -2,8 +2,11 @@ package com.example.proyectofinalandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +39,7 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
     private ImageLoader imageLoader;
 
     private TextView tvName, tvPrice, tvUserUid, tvId;
+    private Button btnRetroceder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,17 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
 
         // Realizar petición
         fetchProductById(WS_GET_PRODUCT_URL + "/" + productId);
+
+        // Retroceder de activity
+        btnRetroceder = (Button) findViewById(R.id.btnRetroceder);
+        btnRetroceder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
