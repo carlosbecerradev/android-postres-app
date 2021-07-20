@@ -1,5 +1,6 @@
 package com.example.proyectofinalandroid;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectofinalandroid.model.Product;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
@@ -131,4 +135,30 @@ public class InsertProductActivity extends AppCompatActivity {
         return Base64.encodeToString(imgBytes, Base64.DEFAULT);
     }
 
+    // App bar manu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_bar_item_cerrar_sesion) {
+            signOut();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void signOut() {
+        // [START auth_sign_out]
+        FirebaseAuth.getInstance().signOut();
+        // [END auth_sign_out]
+        com.facebook.login.LoginManager.getInstance().logOut();
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }
