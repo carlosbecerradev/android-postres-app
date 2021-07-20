@@ -28,31 +28,38 @@
                     android:id="@+id/edt_product_id"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="16dp"
-                    android:inputType="textPersonName"
                     android:layout_marginRight="20dp"
-                    android:hint="Código de producto" />
+                    android:layout_weight="1"
+                    android:hint="Código de producto"
+                    android:inputType="textPersonName"
+                    android:textSize="16dp" />
 
                 <Button
                     android:id="@+id/btnBuscar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Buscar" />
+                    android:background="@drawable/boton_shape_bg_tertiary"
+                    android:text="Buscar"
+                    android:textColor="@color/primary"
+                    android:textSize="16dp"
+                    app:backgroundTint="@null" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnNuevoProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Agregar Nuevo Producto" />
+                android:background="@drawable/boton_shape_bg_primary"
+                android:text="Agregar Nuevo Producto"
+                android:textSize="16dp"
+                app:backgroundTint="@null" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_products"
-                android:layout_marginTop="10dp"
                 android:layout_width="380dp"
-                android:layout_height="546dp" />
+                android:layout_height="546dp"
+                android:layout_marginTop="10dp" />
 
 
         </LinearLayout>

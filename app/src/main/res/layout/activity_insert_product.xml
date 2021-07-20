@@ -28,8 +28,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/boton_shape_bg_tertiary"
+                android:backgroundTint="@null"
                 android:text="Tomar Foto"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/primary"
+                android:textSize="16dp"
+                app:backgroundTint="@null" />
 
             <EditText
                 android:id="@+id/edt_product_name"
@@ -58,17 +64,25 @@
                 android:id="@+id/btnRegistrarProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/boton_shape_bg_primary"
                 android:text="Registrar Producto"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btnCancelarRegistrarProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Salir"
-                android:textAllCaps="false" />
+                android:layout_marginTop="10dp"
+                android:background="@drawable/boton_shape_bg_secondary"
+                android:text="Cancelar"
+                android:textAllCaps="false"
+                android:textColor="@color/secondary"
+                android:textSize="16dp"
+                app:backgroundTint="@null" />
 
         </LinearLayout>
     </ScrollView>

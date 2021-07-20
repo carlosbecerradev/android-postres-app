@@ -11,4 +11,6 @@
     <color name="yellow_200">#F3DA8D</color>>
     <color name="ygray_200">#EDEDED</color>
     <color name="red_200">#FB7F7F</color>
+    <color name="primary">#1C17A6</color>
+    <color name="secondary">#F22E9A</color>
 </resources>
