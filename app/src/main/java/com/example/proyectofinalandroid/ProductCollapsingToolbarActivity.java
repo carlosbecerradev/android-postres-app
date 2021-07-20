@@ -109,8 +109,9 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
             tvUserUid.setText("UID: " + response.getString("userUid"));
             tvId.setText("Id: " + response.getString("id"));
 
-            // Ruta de imagen guardada en el servidor web
-            String url = WS_BASE_URL + "/" + response.getString("imageName");
+            // Ruta de imagen guardada en el servidor web XAMPP
+            String RUTA_APACHE_XAMP = "http://192.168.1.6:80";
+            String url = RUTA_APACHE_XAMP + "/" + response.getString("imageName");
 
             // Realizar petición para traer la imagen del servidor web
             imageLoader = CustomVolleyRequest.getInstance(this.getApplicationContext())
