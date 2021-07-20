@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow_200"
+    android:background="@color/secondary"
     tools:context=".ProductCollapsingToolbarActivity">
 
 
@@ -22,7 +22,7 @@
             android:background="@drawable/bg_gradient"
             android:fitsSystemWindows="true"
             app:collapsedTitleTextAppearance="@style/Theme.ProyectoFinalAndroid"
-            app:contentScrim="@color/yellow_200"
+            app:contentScrim="@color/secondary"
             app:expandedTitleTextAppearance="@style/Theme.ProyectoFinalAndroid"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="">
@@ -30,7 +30,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="210dp"
                 app:layout_collapseMode="pin" />
 
             <com.android.volley.toolbox.NetworkImageView
@@ -73,7 +73,7 @@
                     android:fontFamily="@font/montserrat_medium"
                     android:text="Dona de Chocolate"
                     android:textAlignment="center"
-                    android:textColor="@color/dark_blue"
+                    android:textColor="@color/primary"
                     android:textSize="24dp" />
 
 
@@ -87,9 +87,20 @@
                     android:padding="10dp"
                     android:text="S/ 10"
                     android:textAlignment="center"
-                    android:textColor="@color/dark_blue"
+                    android:textColor="@color/secondary"
                     android:textSize="40dp" />
 
+
+                <TextView
+                    android:id="@+id/textViewRelleno1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="10dp"
+                    android:text="Código de Producto:"
+                    android:textColor="@color/secondary"
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/tv_product_id"
@@ -97,12 +108,21 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:background="@color/ygray_200"
                     android:drawableRight="@drawable/ic_baseline_fingerprint_24_dark_blue"
                     android:padding="10dp"
-                    android:text="ID"
-                    android:textAlignment="center"
+                    android:text="1"
+                    android:textColor="@color/primary"
                     android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/textViewRelleno2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="Código de Usuario:"
+                    android:textColor="@color/secondary"
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/tv_product_userUID"
@@ -110,11 +130,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:background="@color/ygray_200"
                     android:drawableRight="@drawable/ic_baseline_perm_identity_24_dark_blue"
                     android:padding="10dp"
-                    android:text="UID"
-                    android:textAlignment="center"
+                    android:text="Fapsfappsfsa"
+                    android:textColor="@color/primary"
                     android:textSize="20dp" />
 
                 <Space
