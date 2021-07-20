@@ -39,25 +39,19 @@
 
             <EditText
                 android:id="@+id/edt_product_name"
+                style="@style/estilo_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@color/ygray_200"
                 android:hint="Name"
-                android:inputType="textPersonName"
-                android:padding="15dp"
-                android:textSize="18dp" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/edt_product_price"
+                style="@style/estilo_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@color/ygray_200"
                 android:hint="Price"
-                android:inputType="textPersonName"
-                android:padding="15dp"
-                android:textSize="18dp" />
+                android:inputType="textPersonName" />
 
 
             <Button
