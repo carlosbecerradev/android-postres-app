@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         Toast.makeText(MainActivity.this, "El usuario no existe.." + edtEmail.getText(), Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(MainActivity.this, "No se pudo iniciar sesión..", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Su e-mail o contraseña son incorrecto!", Toast.LENGTH_LONG).show();
                     }
                 }
             }
