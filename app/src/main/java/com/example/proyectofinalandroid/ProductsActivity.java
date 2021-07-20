@@ -1,11 +1,14 @@
 package com.example.proyectofinalandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -84,5 +87,23 @@ public class ProductsActivity extends AppCompatActivity {
         products.add(new Product(3L, "Dona de Chispas", "S/ 10", R.drawable.d_choco_crispi));
         products.add(new Product(4L, "Dona de Chocolate", "S/ 10", R.drawable.d_choco));
         products.add(new Product(5L, "Dona de Menta", "S/ 10", R.drawable.d_menta));
+    }
+
+    // Añadiendo App bar - menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_bar_item_cerrar_sesion) {
+            signOut();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
