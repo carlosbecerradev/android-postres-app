@@ -16,16 +16,23 @@
             android:orientation="vertical"
             android:padding="20dp">
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/logo_empresa" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="Ingrese a su cuenta"
                 android:textAlignment="center"
-                android:textColor="@color/dark_blue"
-                android:textSize="24dp" />
+                android:textColor="@color/secondary"
+                android:textSize="14dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,10 +90,10 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="--   O   --"
+                android:text="--   o   --"
                 android:textAlignment="center"
                 android:textColor="@color/dark_blue"
-                android:textSize="15dp" />
+                android:textSize="14dp" />
 
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/login_button"
