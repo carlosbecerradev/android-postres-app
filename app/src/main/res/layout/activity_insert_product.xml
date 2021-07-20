@@ -42,7 +42,7 @@
                 style="@style/estilo_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
+                android:hint="Ingrese el mombre"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -50,7 +50,7 @@
                 style="@style/estilo_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Price"
+                android:hint="Ingrese el precio"
                 android:inputType="textPersonName" />
 
 

@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingLeft="10dp"
-                    android:text="Código de Usuario:"
+                    android:text="Código de Usuario (UID):"
                     android:textColor="@color/secondary"
                     android:textSize="16dp" />
 

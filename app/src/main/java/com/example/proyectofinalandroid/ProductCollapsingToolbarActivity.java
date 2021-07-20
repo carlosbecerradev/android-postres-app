@@ -106,8 +106,8 @@ public class ProductCollapsingToolbarActivity extends AppCompatActivity {
         try {
             tvName.setText(response.getString("name"));
             tvPrice.setText("S/ " + response.getString("price"));
-            tvUserUid.setText("UID: " + response.getString("userUid"));
-            tvId.setText("Id: " + response.getString("id"));
+            tvUserUid.setText(response.getString("userUid"));
+            tvId.setText(response.getString("id"));
 
             // Ruta de imagen guardada en el servidor web XAMPP
             String RUTA_APACHE_XAMP = "http://192.168.1.6:80";
