@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ProductsActivity extends AppCompatActivity {
 
-    private Button btnSignOut, btnSearchProduct, btnInsertProduct;
+    private Button btnSearchProduct, btnInsertProduct;
     private EditText edtCodigoProducto;
     private RecyclerView recyclerViewProducts;
     private List<Product> products = new ArrayList<>();
@@ -41,15 +41,6 @@ public class ProductsActivity extends AppCompatActivity {
 
         adapter = new RecyclerViewAdapter(products);
         recyclerViewProducts.setAdapter(adapter);
-
-        btnSignOut = (Button) findViewById(R.id.btnSignOut);
-
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signOut();
-            }
-        });
 
         // Buscar Producto
         edtCodigoProducto = (EditText) findViewById(R.id.edt_product_id);
